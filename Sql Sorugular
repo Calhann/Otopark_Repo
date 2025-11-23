@@ -1,0 +1,12 @@
+CREATE TABLE YÖNETİCİ (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    AdSoyad NVARCHAR(50) NOT NULL UNIQUE,
+    PasswordHash VARBINARY(64) NOT NULL
+);
+
+ALTER TABLE YÖNETİCİ ADD Rol nvarchar(20) NOT NULL DEFAULT 'Yonetici';
+
+//Yönetici Ad Girme
+
+INSERT INTO YÖNETİCİ (AdSoyad, PasswordHash)
+VALUES ('ONURÇAKAR', HASHBYTES('SHA2_256', 'Onur1234'));
